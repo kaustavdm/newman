@@ -1,0 +1,24 @@
+version = 1
+
+test_patterns = ["/test/**.js"]
+exclude_patterns = ["/node_modules/"]
+
+[[analyzers]]
+name = "docker"
+enabled = true
+
+  [analyzers.meta]
+  dockerfile_paths = [
+    "/docker/images/alpine/Dockerfile",
+    "/docker/images/alpine33/Dockerfile",
+    "/docker/images/ubuntu/Dockerfile",
+    "/docker/images/ubuntu1404/Dockerfile"
+  ]
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  ecma_version = "6"
+  environment = ["nodejs"]
